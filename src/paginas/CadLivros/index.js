@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CadastroLivro() {
 
     const classes = useStyles();
+    
     const [CodigoEditora, setEditora] = useState('');
     const [ISBN, setIsbn] = useState('');
     const [quantidade, setQuantidade] = useState('');
@@ -118,30 +119,6 @@ export default function CadastroLivro() {
                         value={Assunto}
                         onChange={e => setAssunto(e.target.value)}
                     />
-                    {/* <input
-                        placeholder="Autor"
-                        value={NomeAutor}
-                        onChange={e => setAutor(e.target.value)} /> */}
-
-                    {/* <input
-                        placeholder="Codigo da Editora"
-                        value={CodigoEditora}
-                        onChange={e => setEditora(e.target.value)} /> */}
-
-                    {/* <input
-                        placeholder="ISBN"
-                        value={ISBN}
-                        onChange={e => setIsbn(e.target.value)} /> */}
-
-                    {/* <input
-                        placeholder="Quantidade"
-                        value={quantidade}
-                        onChange={e => setQuantidade(e.target.value)} /> */}
-
-                    {/* <input
-                        placeholder="Assunto"
-                        value={Assunto}
-                        onChange={e => setAssunto(e.target.value)} /> */}
                     <div className={classes.root}>
                         <Button variant="outlined" className="button" type="submit">Cadastrar Livro</Button>
                     </div>

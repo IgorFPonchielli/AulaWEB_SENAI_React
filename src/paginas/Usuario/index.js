@@ -90,6 +90,7 @@ export default function CadastroLivro() {
                                     style={{ margin: 8, width: '48%' }}
                                     placeholder=""
                                     margin="normal"
+                                    type="password"
                                     InputLabelProps={{
                                         shrink: true,
                                     }}

@@ -7,6 +7,7 @@ import Livro from './paginas/Livro';
 import ListarLivro from './paginas/ListarLivros';
 import CadLivro from './paginas/CadLivros';
 import Usuario from './paginas/Usuario'
+import Login from './paginas/Login'
 
 function Routes() {
     return (
@@ -18,6 +19,7 @@ function Routes() {
                 <Route path="/listarlivros2" component={ListarLivro}/>
                 <Route path="/cadlivros" component={CadLivro}/>
                 <Route path="/usuario" component={Usuario}/>
+                <Route path="/login" component={Login}/>
             </Switch>
         </BrowserRouter>
     )
