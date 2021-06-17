@@ -1,5 +1,5 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+import React, { useState } from 'react';
+import api from '../Services/api';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -51,14 +51,36 @@ const theme = createMuiTheme({
 
 
 export default function Login() {
+    
     const classes = useStyles();
+    const [Email, getEmail] = useState('');
+    const [Senha, getSenha] = useState('');
+
+    async function handleLogin(e) {
+        e.preventDefault();
+
+        const dados = {
+            Email,
+            Senha
+        };
+
+        try {
+            console.log(dados);
+            const response = await api.get('login', dados);
+            console.log(response.data.nome);
+            //alert(response);
+            // history.push('/');
+        } catch (error) {
+            alert("Login Invalido " + error.message);
+        }
+    }
 
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
                 <img src={senai} className="App-senai" alt="senai" />
-                <form className={classes.form} noValidate>
+                <form className={classes.form} onSubmit={handleLogin}>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -69,6 +91,8 @@ export default function Login() {
                         name="email"
                         autoComplete="email"
                         autoFocus
+                        value={Email}
+                        onChange={e => getEmail(e.target.value)}
                     />
                     <TextField
                         variant="outlined"
@@ -80,6 +104,8 @@ export default function Login() {
                         type="password"
                         id="senha"
                         autoComplete="current-password"
+                        value={Senha}
+                        onChange={e => getSenha(e.target.value)}
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
@@ -91,7 +117,6 @@ export default function Login() {
                             fullWidth
                             variant="contained"
                             color="primary"
-                            className={classes.submit}
                         >
                         Login
                         </Button>
