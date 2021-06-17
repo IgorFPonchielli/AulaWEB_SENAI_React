@@ -5,15 +5,15 @@ const router = express();
 
 router.get('/login', async function(req, res) {
     const user = req.body;
-    const Logged = await loginService.auth(user);
+    const userConnected = await loginService.auth(user);
 
-    res.json(Logged)
-    /*if (Logged) {
-        res.json(Logged)
-       // res.status(200).end();
+    if (userConnected != "") {
+       res.json(userConnected)
+       res.status(200).end();
     } else {
-       // res.status(401).end();
-    }*/
+       console.log("Não conectou")
+       res.status(401).end();
+    }
     
  });
 
